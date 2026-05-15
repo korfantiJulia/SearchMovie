@@ -1,6 +1,11 @@
-import "./App.css";
-import {}
+import { Outlet } from "react-router";
+import { AppHeader } from "./Components/AppHeader/AppHeader";
 
 export function App() {
-  return <></>;
+  return (
+    <>
+      <AppHeader />
+      <Outlet />
+    </>
+  );
 }

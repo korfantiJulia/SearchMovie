@@ -10,19 +10,21 @@ export const MovieCard = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="flex gap-4 rounded-xl bg-white p-4 shadow">
+    <div className="flex min-h-[220px] w-[350px] gap-4 rounded-2xl bg-white p-4 shadow-lg transition hover:scale-[1.02] hover:shadow-2xl">
       <img
         src={movieData.Poster !== "N/A" ? movieData.Poster : noPoster}
         alt="Poster"
-        className="w-[100px] rounded object-cover"
+        className="h-[160px] w-[110px] rounded-lg object-cover"
       />
       <div>
-        <h2 className="text-lg font-bold">{movieData.Title}</h2>
-        <p>Year:{movieData.Year}</p>
-        <p className="text-gray-500">{movieData.Type}</p>
-      </div>
+        <h2 className="text-xl font-bold text-zinc-800">{movieData.Title}</h2>
+        <p className="mt-2 text-sm text-zinc-600">Year:{movieData.Year}</p>
+        <p className="mt-1 text-sm tracking-wide text-gray-400 uppercase">
+          {movieData.Type}
+        </p>
 
-      {children}
+        {children}
+      </div>
     </div>
   );
 };

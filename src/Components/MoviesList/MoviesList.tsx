@@ -23,7 +23,7 @@ export const MoviesList = ({
               <MovieCard movieData={movie} key={movie.imdbID}>
                 <Link
                   to={`/movie/${movie.imdbID}`}
-                  className="border-black-800 cursor-pointer border p-4"
+                  className="mt-auto inline-block w-fit rounded-lg bg-zinc-800 px-4 py-2 text-white transition hover:bg-zinc-700"
                 >
                   Read more
                 </Link>
@@ -35,7 +35,7 @@ export const MoviesList = ({
   };
 
   return (
-    <div className="flex gap-4 rounded-xl bg-white p-4 shadow">
+    <div className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-6 px-4">
       {whatRender()}
     </div>
   );

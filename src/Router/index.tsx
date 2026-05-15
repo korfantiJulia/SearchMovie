@@ -2,18 +2,25 @@ import { createBrowserRouter } from "react-router";
 import { HomePage } from "../views/HomePage";
 import { AboutMoviePage } from "../views/AboutMoviePage";
 import { ContactPage } from "../views/Contact";
+import { App } from "../App";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/movie/:id",
-    element: <AboutMoviePage />,
-  },
-  {
-    path: "/contact",
-    element: <ContactPage />,
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/movie/:id",
+        element: <AboutMoviePage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
+      },
+    ],
   },
 ]);

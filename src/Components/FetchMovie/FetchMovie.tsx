@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { HomePage } from "../../views/HomePage";
-import { ContactPage } from "../../views/Contact";
 import { type MovieProps } from "../MovieCard/MovieCardProps.types";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { MoviesList } from "../MoviesList/MoviesList";
@@ -32,7 +30,7 @@ export function SearchMovie() {
 
         const movies = await response.json();
 
-        setMovies(movies.Search);
+        setMovies(movies.Search || []);
       } catch (error) {
         setError("Something went wrong");
       } finally {
@@ -41,23 +39,10 @@ export function SearchMovie() {
     };
 
     fetchMovie();
-
-    // return () => {
-    //   setQuery("");
-    //   setMovies([]);
-    //   setError(null);
-    //   setLoading(false);
-    // };
   }, [query]);
 
   return (
     <>
-      <header className="flex gap-4">
-        <HomePage />
-        <ContactPage />
-        <h2>Movie Data</h2>
-      </header>
-
       <SearchForm querySubmitHandler={(newQuery) => setQuery(() => newQuery)} />
       <MoviesList movies={movies} loading={loading} error={error} />
     </>
