@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-// import { MovieCard } from "../Components/MovieCard/MovieCard";
 import type { MovieProps } from "../Components/MovieCard/MovieCardProps.types";
 import { Link } from "react-router";
+import noPoster from "../assets/noPoster.png";
 
 export function AboutMoviePage() {
   const params = useParams();
@@ -35,7 +35,7 @@ export function AboutMoviePage() {
 
       <div className="flex w-auto gap-4 rounded-2xl bg-white p-4 shadow-lg transition hover:scale-[1.02] hover:shadow-2xl">
         <img
-          src={movie.Poster !== "N/A" ? movie.Poster : noPoster}
+          src={movie.Poster && movie.Poster !== "N/A" ? movie.Poster : noPoster}
           alt="Poster"
           className="w-auto rounded-lg object-cover"
         />
@@ -51,12 +51,6 @@ export function AboutMoviePage() {
           </p>
         </div>
       </div>
-
-      {/* <MovieCard movieData={movie}>
-        <span className="mt-auto text-sm text-gray-500">
-          Full movie information
-        </span>
-      </MovieCard> */}
     </div>
   );
 }
