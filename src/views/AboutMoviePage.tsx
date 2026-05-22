@@ -6,6 +6,11 @@ import noPoster from "../assets/noPoster.png";
 import { ThemeContext } from "../context/ThemeContext";
 
 export function AboutMoviePage() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("No theme context");
+  }
+  const { theme } = context;
   const params = useParams();
   const [movie, setMovie] = useState<MovieProps | null>(null);
 
@@ -26,14 +31,6 @@ export function AboutMoviePage() {
     return <p>Loading...</p>;
   }
 
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("No theme context");
-  }
-
-  const { theme } = context;
-
   return (
     <div className="min-h-screen p-8">
       <Link to="/" className="mb-6 inline-block text-blue-600 underline">
@@ -43,7 +40,7 @@ export function AboutMoviePage() {
       {/* <h2 className="mb-6 text-3xl font-bold"> About movie: {movie.Title}</h2> */}
 
       <div
-        className={`flex w-auto gap-4 p-4 ${theme === "Dark" ? "bg-zinc-700" : "bg-white"}`}
+        className={`flex w-auto gap-4 rounded-2xl p-4 ${theme === "Dark" ? "bg-zinc-900 shadow-lg shadow-white/20" : "bg-white shadow-lg"}`}
       >
         <img
           src={movie.Poster && movie.Poster !== "N/A" ? movie.Poster : noPoster}

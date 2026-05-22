@@ -17,7 +17,9 @@ export function App() {
       <AppHeader />
       <div
         className={
-          theme === "Dark" ? "bg-zinc-700 text-white" : "bg-white text-zinc-700"
+          theme === "Dark"
+            ? "min-h-screen bg-zinc-950 text-zinc-100"
+            : "min-h-screen bg-zinc-100 text-zinc-900"
         }
       >
         <Outlet />

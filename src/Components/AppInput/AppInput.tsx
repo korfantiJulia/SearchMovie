@@ -23,7 +23,11 @@ export const AppInput = ({
       <span>{children}</span>
 
       <input
-        className={`rounded-lg border border-black p-2 ${theme === "Dark" ? "bg-white text-zinc-700" : "bg-white text-zinc-700"}`}
+        className={`rounded-lg border border-black p-2 ${
+          theme === "Dark"
+            ? "border-zinc-700 bg-zinc-900 text-zinc-100 placeholder:text-zinc-500"
+            : "border-zinc-300 bg-white text-zinc-700"
+        }`}
         placeholder="Search movie..."
         value={value}
         onChange={(e) => inputHandler(e.target.value)}
