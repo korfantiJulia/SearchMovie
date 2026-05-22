@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router";
 import cinema from "../../assets/cinema.jpg";
+import { ChangeThemeButton } from "../ChangeThemeButton/ChangeThemeButton";
 
 export const AppHeader = () => {
   return (
@@ -10,16 +11,10 @@ export const AppHeader = () => {
       />
       <div className="relative z-10 flex h-full items-center justify-between px-8">
         <Link to="/" className="flex items-center gap-3">
-          {/* <img
-            src={cinema}
-            alt="Cinema logo"
-            className="h-14 w-14 rounded-full object-cover shadow"
-          /> */}
-
           <span className="text-6xl font-bold text-zinc-800">Movie Search</span>
         </Link>
 
-        <nav>
+        <nav className="flex gap-6">
           <ul className="flex items-center gap-6 text-2xl font-medium">
             <li>
               <NavLink
@@ -42,6 +37,8 @@ export const AppHeader = () => {
               </NavLink>
             </li>
           </ul>
+
+          <ChangeThemeButton />
         </nav>
       </div>
     </header>

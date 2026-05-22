@@ -4,9 +4,6 @@ import { SearchForm } from "../SearchForm/SearchForm";
 import { MoviesList } from "../MoviesList/MoviesList";
 
 export function SearchMovie() {
-  // const API_KEY_MOVIE = "2cf3419";
-  // const API_URL_MOVIE = `https://www.omdbapi.com/?2cf3419=${API_KEY_MOVIE}&s=`;
-
   const [query, setQuery] = useState<string>("");
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
