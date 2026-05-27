@@ -1,5 +1,5 @@
-import { useContext, type ReactElement } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 
 export const AppInput = ({
   value,
@@ -10,13 +10,7 @@ export const AppInput = ({
   inputHandler: (val: string) => void;
   children?: ReactElement;
 }) => {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("Please, pass theme context");
-  }
-
-  const { theme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <label>

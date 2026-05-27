@@ -1,16 +1,10 @@
 import { Outlet } from "react-router";
 import { AppHeader } from "./Components/AppHeader/AppHeader";
-import { useContext } from "react";
-import { ThemeContext } from "./context/ThemeContext";
+import { useSelector } from "react-redux";
+import type { RootState } from "./redux/store";
 
 export function App() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("Please, pass theme context");
-  }
-
-  const { theme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <>

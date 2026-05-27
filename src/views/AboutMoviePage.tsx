@@ -1,16 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import type { MovieProps } from "../Components/MovieCard/MovieCardProps.types";
 import { Link } from "react-router";
 import noPoster from "../assets/noPoster.png";
-import { ThemeContext } from "../context/ThemeContext";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 
 export function AboutMoviePage() {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("No theme context");
-  }
-  const { theme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
   const params = useParams();
   const [movie, setMovie] = useState<MovieProps | null>(null);
 

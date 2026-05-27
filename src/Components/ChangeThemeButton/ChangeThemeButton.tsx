@@ -1,19 +1,15 @@
-import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../redux/slices/themeSlice";
+import type { RootState } from "../../redux/store";
 
 export function ChangeThemeButton() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("Please, pass theme context");
-  }
-
-  const { theme, setTheme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
+  const dispatch = useDispatch();
 
   return (
     <button
       className={`inline-block w-[170px] cursor-pointer rounded-lg px-4 py-2 text-xl font-medium ${theme === "Dark" ? "bg-zinc-800 text-white" : "bg-white text-zinc-800"}`}
-      onClick={() => (theme === "Light" ? setTheme("Dark") : setTheme("Light"))}
+      onClick={() => dispatch(toggleTheme())}
     >
       {theme} theme
     </button>

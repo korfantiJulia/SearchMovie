@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { AppInput } from "../AppInput/AppInput";
-import { ThemeContext } from "../../context/ThemeContext";
+import type { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
 
 export const SearchForm = ({
   querySubmitHandler,
@@ -19,13 +20,7 @@ export const SearchForm = ({
     querySubmitHandler(query);
   };
 
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("Please, pass theme context");
-  }
-
-  const { theme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <form className="flex justify-center gap-4" onSubmit={submitHandler}>

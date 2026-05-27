@@ -1,7 +1,7 @@
+import { useSelector } from "react-redux";
 import noPoster from "../../assets/cinema.jpg";
-import { ThemeContext } from "../../context/ThemeContext";
 import type { MovieProps } from "../MovieCard/MovieCardProps.types";
-import { useContext, type ReactNode } from "react";
+import type { RootState } from "../../redux/store";
 
 export const MovieCard = ({
   movieData,
@@ -10,13 +10,7 @@ export const MovieCard = ({
   movieData: MovieProps;
   children: ReactNode;
 }) => {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error("No theme context");
-  }
-
-  const { theme } = context;
+  const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
     <div
