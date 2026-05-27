@@ -26,7 +26,7 @@ export const SearchForm = ({
     <form className="flex justify-center gap-4" onSubmit={submitHandler}>
       <AppInput value={query} inputHandler={queryHandler} />
       <button
-        className={`inline-block cursor-pointer rounded-lg px-4 py-2 transition ${theme === "Dark" ? "bg-blue-500 text-white hover:bg-blue-400" : "bg-zinc-800 text-white"}`}
+        className={`inline-block cursor-pointer rounded-lg px-4 py-2 transition ${theme === "Dark" ? "bg-indigo-500 text-white hover:bg-indigo-400" : "bg-zinc-800 text-white"}`}
         type="submit"
       >
         Search
