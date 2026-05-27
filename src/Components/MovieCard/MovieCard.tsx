@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import noPoster from "../../assets/cinema.jpg";
 import type { MovieProps } from "../MovieCard/MovieCardProps.types";
 import type { RootState } from "../../redux/store";
+import type { ReactNode } from "react";
 
 export const MovieCard = ({
   movieData,
