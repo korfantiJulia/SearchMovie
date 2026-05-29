@@ -1,46 +1,27 @@
-import { useState, useEffect } from "react";
-import { type MovieProps } from "../MovieCard/MovieCardProps.types";
+import { useEffect } from "react";
 import { SearchForm } from "../SearchForm/SearchForm";
 import { MoviesList } from "../MoviesList/MoviesList";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMovies, setQuery } from "../../redux/slices/moviesSlice";
+import type { AppDispatch, RootState } from "../../redux/store";
 
 export function SearchMovie() {
-  const [query, setQuery] = useState<string>("");
-  const [movies, setMovies] = useState<MovieProps[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const query = useSelector((state: RootState) => state.movies.query);
+  const movies = useSelector((state: RootState) => state.movies.moviesList);
+  const error = useSelector((state: RootState) => state.movies.error);
+  const loading = useSelector((state: RootState) => state.movies.loading);
 
   useEffect(() => {
-    if (!query.trim()) return;
-
-    const fetchMovie = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const response = await fetch(
-          `https://www.omdbapi.com/?apikey=2cf3419&s=` +
-            encodeURIComponent(query),
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const movies = await response.json();
-
-        setMovies(movies.Search || []);
-      } catch (error) {
-        setError("Something went wrong");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchMovie();
-  }, [query]);
+    if (!query?.length) return;
+    dispatch(fetchMovies(query));
+  }, [query, dispatch]);
 
   return (
     <>
-      <SearchForm querySubmitHandler={(newQuery) => setQuery(() => newQuery)} />
+      <SearchForm
+        querySubmitHandler={(newQuery) => dispatch(setQuery(newQuery))}
+      />
       <MoviesList movies={movies} loading={loading} error={error} />
     </>
   );
