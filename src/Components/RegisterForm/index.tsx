@@ -76,7 +76,7 @@ export const RegisterForm = () => {
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
         <span className="text-md text-start text-zinc-600">Phone number</span>
         <input
-          type="number"
+          type="tel"
           className={`w-[500px] rounded-lg border border-black p-2 ${
             theme === "Dark"
               ? "border-zinc-700 bg-zinc-900 text-zinc-100 placeholder:text-zinc-500"
@@ -129,7 +129,6 @@ export const RegisterForm = () => {
       <label className="flex items-center justify-start">
         <input
           type="checkbox"
-          {...register("terms")}
           className={`rounded-lg border border-black p-2 ${
             theme === "Dark"
               ? "border-zinc-700 bg-zinc-900 text-zinc-100 placeholder:text-zinc-500"
