@@ -15,7 +15,7 @@ export const AppHeader = () => {
         </Link>
 
         <nav className="flex gap-6">
-          <ul className="flex items-center gap-6 text-2xl font-medium">
+          <ul className="flex items-center gap-6 text-xl font-medium">
             <li>
               <NavLink
                 to="/"
@@ -34,6 +34,17 @@ export const AppHeader = () => {
                 }
               >
                 Contact
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 underline" : ""
+                }
+              >
+                Register
               </NavLink>
             </li>
           </ul>

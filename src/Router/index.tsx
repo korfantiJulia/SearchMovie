@@ -3,6 +3,7 @@ import { HomePage } from "../views/HomePage";
 import { AboutMoviePage } from "../views/AboutMoviePage";
 import { ContactPage } from "../views/Contact";
 import { App } from "../App";
+import { RegisterPage } from "../views/RegisterPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,5 +23,9 @@ export const router = createBrowserRouter([
         element: <ContactPage />,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
   },
 ]);
