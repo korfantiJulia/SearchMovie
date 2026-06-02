@@ -29,8 +29,15 @@ export const RegisterForm = () => {
   const theme = useSelector((state: RootState) => state.theme.theme);
 
   return (
-    <form onSubmit={handleSubmit(formSubmit)} className="mt-6 px-6">
-      <h2 className="mb-6 text-2xl font-bold">Registration</h2>
+    <form
+      onSubmit={handleSubmit(formSubmit)}
+      className={`mt-6 px-6 ${theme === "Dark" ? "bg-zinc-900 text-zinc-100" : "bg-white text-zinc-800"}`}
+    >
+      <h2
+        className={`mb-6 text-2xl font-bold ${theme === "Dark" ? "text-zinc-100" : "text-zinc-800"}`}
+      >
+        Registration
+      </h2>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
         <span className="text-md text-start text-zinc-600">First name</span>
