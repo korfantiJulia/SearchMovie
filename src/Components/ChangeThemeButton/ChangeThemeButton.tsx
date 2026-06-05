@@ -8,7 +8,7 @@ export function ChangeThemeButton() {
 
   return (
     <button
-      className={`inline-block w-[150px] cursor-pointer rounded-lg px-4 py-2 text-lg font-medium ${theme === "Dark" ? "bg-zinc-800 text-white" : "bg-white text-zinc-800"}`}
+      className={`text-md inline-block w-[150px] cursor-pointer rounded-lg border px-4 py-2 font-medium transition ${theme === "Dark" ? "border-zinc-600 bg-zinc-800 text-zinc-100 hover:border-indigo-500 hover:text-indigo-400" : "border-zinc-300 bg-white text-zinc-800 hover:border-indigo-500 hover:text-indigo-600"}`}
       onClick={() => dispatch(toggleTheme())}
     >
       {theme} theme

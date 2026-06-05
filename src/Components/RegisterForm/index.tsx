@@ -40,7 +40,7 @@ export const RegisterForm = () => {
       </h2>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
-        <span className="text-md text-start text-zinc-600">First name</span>
+        <span className={`text-md text-start ${theme === "Dark" ? "text-zinc-400" : "text-zinc-600"}`}>First name</span>
         <input
           type="text"
           className={`w-[500px] rounded-lg border border-black p-2 ${
@@ -57,7 +57,7 @@ export const RegisterForm = () => {
       </label>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
-        <span className="text-md text-start text-zinc-600">E-mail</span>
+        <span className={`text-md text-start ${theme === "Dark" ? "text-zinc-400" : "text-zinc-600"}`}>E-mail</span>
         <input
           type="email"
           className={`w-[500px] rounded-lg border border-black p-2 ${
@@ -74,7 +74,7 @@ export const RegisterForm = () => {
       </label>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
-        <span className="text-md text-start text-zinc-600">Phone number</span>
+        <span className={`text-md text-start ${theme === "Dark" ? "text-zinc-400" : "text-zinc-600"}`}>Phone number</span>
         <input
           type="tel"
           className={`w-[500px] rounded-lg border border-black p-2 ${
@@ -91,7 +91,7 @@ export const RegisterForm = () => {
       </label>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
-        <span className="text-md text-start text-zinc-600">Password</span>
+        <span className={`text-md text-start ${theme === "Dark" ? "text-zinc-400" : "text-zinc-600"}`}>Password</span>
         <input
           type="password"
           className={`w-[500px] rounded-lg border border-black p-2 ${
@@ -108,7 +108,7 @@ export const RegisterForm = () => {
       </label>
 
       <label className="mb-6 flex cursor-pointer flex-col gap-2">
-        <span className="text-md text-start text-zinc-600">
+        <span className={`text-md text-start ${theme === "Dark" ? "text-zinc-400" : "text-zinc-600"}`}>
           Confirm password
         </span>
         <input
@@ -148,7 +148,7 @@ export const RegisterForm = () => {
 
       <button
         type="submit"
-        className={`my-6 flex cursor-pointer items-center justify-center rounded-lg px-4 py-2 transition ${theme === "Dark" ? "bg-indigo-500 text-white hover:bg-indigo-400" : "bg-zinc-800 text-white"}`}
+        className={`my-6 flex cursor-pointer items-center justify-center rounded-lg px-4 py-2 transition ${theme === "Dark" ? "bg-indigo-500 text-white hover:bg-indigo-400" : "bg-indigo-600 text-white hover:bg-indigo-500"}`}
       >
         Register me
       </button>

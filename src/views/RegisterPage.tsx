@@ -7,7 +7,7 @@ export const RegisterPage = () => {
       <Link to="/" className="mb-6 inline-block text-blue-600 underline">
         ← Back
       </Link>
-      <RegisterForm />;
+      <RegisterForm />
     </>
   );
 };

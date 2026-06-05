@@ -15,10 +15,10 @@ export const MovieCard = ({
 
   return (
     <div
-      className={`flex min-h-[220px] w-[350px] gap-4 rounded-2xl bg-white p-4 shadow-lg transition hover:scale-[1.02] hover:shadow-2xl ${
+      className={`flex min-h-[220px] w-[350px] gap-4 rounded-2xl p-4 shadow-lg transition hover:scale-[1.02] ${
         theme === "Dark"
-          ? "bg-zinc-900 shadow-lg shadow-white/20"
-          : "bg-white shadow-lg"
+          ? "bg-zinc-800 shadow-indigo-500/20 hover:shadow-indigo-500/40"
+          : "bg-white shadow-zinc-200 hover:shadow-zinc-300"
       }`}
     >
       <img
