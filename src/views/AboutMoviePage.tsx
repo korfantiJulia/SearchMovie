@@ -10,19 +10,32 @@ export function AboutMoviePage() {
   const theme = useSelector((state: RootState) => state.theme.theme);
   const params = useParams();
   const [movie, setMovie] = useState<MovieProps | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const response = await fetch(
-        `https://www.omdbapi.com/?apikey=2cf3419&i=` + params.id,
-      );
+      try {
+        const response = await fetch(
+          `https://www.omdbapi.com/?apikey=2cf3419&i=` + params.id,
+        );
 
-      const data = await response.json();
-      setMovie(data);
+        const data = await response.json();
+        if (data.Response === "False") {
+          setError(data.Error);
+          return;
+        }
+        setMovie(data);
+      } catch {
+        setError("Failed to fetch movie data");
+      }
     };
 
     fetchMovie();
   }, [params.id]);
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   if (!movie) {
     return <p>Loading...</p>;
@@ -33,8 +46,6 @@ export function AboutMoviePage() {
       <Link to="/" className="mb-6 inline-block text-blue-600 underline">
         ← Back
       </Link>
-
-      {/* <h2 className="mb-6 text-3xl font-bold"> About movie: {movie.Title}</h2> */}
 
       <div
         className={`flex w-auto gap-4 rounded-2xl p-4 ${theme === "Dark" ? "bg-zinc-900 shadow-lg shadow-white/20" : "bg-white shadow-lg"}`}
